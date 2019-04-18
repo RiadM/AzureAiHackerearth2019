@@ -11,14 +11,28 @@ The basic Idea is to build an automated system so you could sell stuff directly 
 5. Adding speech recognition so people don't need to write what they want. 
 6. Maybe start accepting payement by crypto
 
-
-# Admin panel
-
 # Back-end
+1. Server that scrappe the message from the main what's app account.
+2. Define new messages as (Request, Follow up, Closing or mistake)
+3. Preprocess the message with basic manipulation to know if we can reply without Azure first.
+4. Format to a JSON request to be send to Azure.
+5. Azure Magic.
+6. Look up on the database the item wanted
+7. Craft a reply message
+8  Send to customer and wait for Follow-up or closing message.
+9. Define if the *Flow* was succesfull or not and save it to the training database.
+
+# Azure AI
+We connect the extracted text with this API from Azure AI and our own DB. This will give us a good starting point to better understand the request of our client.
+* Key phrase extraction using the text Analytics REST Api [Doc](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction)
+* Identify entity in the text [Doc](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+
+
 
 # Front-end
 
-# Azure AI
+# Admin panel
+
 
 # Software used in this MVP
 **This MVP is not meant to be used as a commercial product, but only as a crude prototype**
